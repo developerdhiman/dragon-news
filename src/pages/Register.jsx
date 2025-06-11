@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   const handleSignUp = (e) => {
-    const {createUser} = useContext(AuthContext);
+    const { setUser, createUser } = useContext(AuthContext);
 
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
     createUser(email, password)
-    .then(userCredential => {
-        console.log(userCredential.user);
-    })
-    .catch(error => error.message)
+      .then((userCredential) => {
+        setUser(userCredential);
+      })
+      .catch((error) => error.message);
   };
   return (
     <div className="bg-gray-100">
@@ -45,7 +45,9 @@ const Register = () => {
                 <a className="link link-hover">Forgot password?</a>
                 <p>
                   Already have your account.
-                  <Link to="/login" className="font-semibold">Log In</Link>
+                  <Link to="/login" className="font-semibold">
+                    Log In
+                  </Link>
                 </p>
               </div>
               <button className="btn btn-neutral mt-4 w-full">Register</button>

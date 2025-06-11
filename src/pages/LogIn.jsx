@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const LogIn = () => {
-    const {signInUser} = useContext(AuthContext);
+    const {setUser,signInUser} = useContext(AuthContext);
     // const [user, setUser] = useState(null);
 
   const handleLogIn = (e) => {
@@ -16,8 +16,8 @@ const LogIn = () => {
 
     signInUser(email, password)
     .then(userCredensial => {
-        console.log(userCredensial.user);
-        // setUser(userCredensial.user)
+        
+        setUser(userCredensial.user)
     })
     .catch(error => {
         console.log(error.message);
