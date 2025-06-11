@@ -1,27 +1,21 @@
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
-const LogIn = () => {
-    const {signInUser} = useContext(AuthContext);
-    // const [user, setUser] = useState(null);
+const Register = () => {
+  const handleSignUp = (e) => {
+    const {createUser} = useContext(AuthContext);
 
-  const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
-
-
-    signInUser(email, password)
-    .then(userCredensial => {
-        console.log(userCredensial.user);
-        // setUser(userCredensial.user)
+    createUser(email, password)
+    .then(userCredential => {
+        console.log(userCredential.user);
     })
-    .catch(error => {
-        console.log(error.message);
-    })
+    .catch(error => error.message)
   };
   return (
     <div className="bg-gray-100">
@@ -30,9 +24,9 @@ const LogIn = () => {
         <div className="bg-base-100 w-full max-w-lg shrink-0">
           <div className="card-body">
             <h2 className="text-2xl font-semibold text-center">
-              Login your account
+              Register your account
             </h2>
-            <form onSubmit={handleLogIn} className="fieldset">
+            <form onSubmit={handleSignUp} className="fieldset">
               <label className="label">Email</label>
               <input
                 name="email"
@@ -50,11 +44,11 @@ const LogIn = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
                 <p>
-                  Do not have your account.
-                  <Link to="/register" className="font-semibold">Register</Link>
+                  Already have your account.
+                  <Link to="/login" className="font-semibold">Log In</Link>
                 </p>
               </div>
-              <button className="btn btn-neutral mt-4 w-full">Login</button>
+              <button className="btn btn-neutral mt-4 w-full">Register</button>
             </form>
           </div>
         </div>
@@ -63,4 +57,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Register;

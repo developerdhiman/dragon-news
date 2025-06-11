@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { createContext } from "react";
 import { app } from "../firebase/firebase.config";
 
@@ -8,6 +8,11 @@ const AuthProvider = ({ children }) => {
     //create-user
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(Auth, email, password)
+    };
+
+    //signIn-User
+    const signInUser = (email, password) => {
+        return signInWithEmailAndPassword(Auth, email, password)
     };
 
   const authInfo = {
