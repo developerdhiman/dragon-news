@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import CategoryNews from "../pages/CategoryNews";
+import LogIn from "../pages/LogIn";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     path: "*",
     element: <h1>Error</h1>,
   },
+  {
+    path: "/login",
+    element: <LogIn></LogIn>
+  }
 ]);
 
 export default router;
