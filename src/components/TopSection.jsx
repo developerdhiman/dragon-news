@@ -1,5 +1,6 @@
 import logo from '../assets/logo.png';
 import MarqueeSection from './MarqueeSection';
+import Navbar from './Navbar';
 import RealTimeDate from './RealTimeDate';
 
 const TopSection = () => {
@@ -9,6 +10,7 @@ const TopSection = () => {
             <p>Journalism Without Fear or Favor</p>
             <RealTimeDate></RealTimeDate>
             <MarqueeSection></MarqueeSection>
+            <Navbar></Navbar>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import TopSection from "../components/TopSection";
 
 const HomeLayouts = () => {
     return (
-        <div>
+        <div className="container mx-auto">
             <TopSection></TopSection>
         </div>
     );
