@@ -3,6 +3,7 @@ import { Link } from "react-router";
 
 const LeftSide = () => {
     const [categories, setCategories] = useState([]);
+    // Fetch categories from the API
         useEffect(() => {
         fetch("https://openapi.programming-hero.com/api/news/categories")
             .then(response => response.json())

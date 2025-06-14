@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import LeftSide from "../components/layout-components/LeftSide";
 import RightSide from "../components/layout-components/RightSide";
 import TopSection from "../components/TopSection";
@@ -11,7 +12,9 @@ const HomeLayouts = () => {
                     <aside className="col-span-3 bg-gray-100 p-4">
                         <LeftSide></LeftSide>
                     </aside>
-                    <main className="col-span-6"> hielsajkfl;sf lorem223</main>
+                    <main className="col-span-6">
+                        <Outlet></Outlet>
+                    </main>
                     <aside className="col-span-3">
                         <RightSide></RightSide>
                     </aside>
